@@ -41,3 +41,27 @@ target\windows\ImageCoordinatesTool\ImageCoordinatesTool.exe
 ```
 
 Приложение принимает путь к изображению первым аргументом командной строки, поэтому Windows может передавать PNG/JPG файл напрямую.
+
+## Установщик Windows
+
+Для сборки полноценного `.exe`-установщика нужен WiX Toolset 3.x. Его можно установить в систему:
+
+```powershell
+winget install WiXToolset.WiXToolset
+```
+
+Или распаковать portable-версию `wix314-binaries.zip` в локальную папку `tools\wix`.
+
+После установки или распаковки WiX перезапустите терминал и соберите установщик:
+
+```powershell
+.\scripts\package-windows-installer.cmd
+```
+
+Готовый установщик появится в папке:
+
+```text
+target\installer
+```
+
+Установщик добавляет ярлыки в меню Пуск и на рабочий стол, использует иконку приложения и регистрирует ассоциации для PNG/JPG/JPEG.
