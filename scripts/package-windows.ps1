@@ -45,7 +45,7 @@ Invoke-Native "jpackage" `
     --dest $appImageDir `
     --input $inputDir `
     --main-jar image-coordinates-tool-1.0.0.jar `
-    --main-class ru.qa.tools.ImageCoordinatesTool `
+    --main-class ru.qa.tools.ImageCoordinatesToolLauncher `
     --java-options "-Dfile.encoding=UTF-8"
 
 Write-Host "Created: $(Join-Path $appImageDir 'ImageCoordinatesTool\ImageCoordinatesTool.exe')"
