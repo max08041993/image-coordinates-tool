@@ -1,34 +1,43 @@
-# Image Coordinates Tool
+# Инструмент координат изображения
 
-Windows tool for opening PNG/JPG images and selecting rectangular areas. The side panel shows:
+Небольшое Windows-приложение для открытия PNG/JPG изображений и выделения прямоугольных областей.
 
-- cursor coordinates on the image;
-- left top corner of the selected rectangle;
-- right bottom corner of the selected rectangle;
-- selected rectangle size.
+В правой панели отображаются:
 
-After a rectangle is selected, drag its border or corner with the left mouse button to resize it.
+- координаты курсора на изображении;
+- левый верхний угол выделенного прямоугольника;
+- правый нижний угол выделенного прямоугольника;
+- размер выделенной области;
+- готовая строка для сценариев в формате `| minX | minY | maxX | maxY |`.
 
-## Run from Maven
+## Управление
+
+- `ЛКМ + перетаскивание`: выделить область.
+- `ЛКМ по краю/углу области`: изменить размер уже выделенного прямоугольника.
+- `Ctrl + ЛКМ + перетаскивание`: двигать изображение.
+- `Колесо мыши + перетаскивание`: двигать изображение.
+- `Ctrl + колесо мыши`: масштабировать относительно точки под курсором.
+
+## Запуск из Maven
 
 ```powershell
 .\mvnw.cmd javafx:run
 ```
 
-Open an image from inside the app with `File -> Open image...`.
+Изображение можно открыть из приложения через меню `Файл -> Открыть изображение...`.
 
-## Open With on Windows
+## Открыть с помощью в Windows
 
-Build the Windows app image:
+Соберите Windows-версию приложения:
 
 ```powershell
 .\scripts\package-windows.cmd
 ```
 
-Then choose this executable in Windows `Open with`:
+После сборки выберите этот файл в Windows через `Открыть с помощью`:
 
 ```text
 target\windows\ImageCoordinatesTool\ImageCoordinatesTool.exe
 ```
 
-The app accepts the image path as the first command-line argument, so Windows can pass a PNG/JPG file directly to it.
+Приложение принимает путь к изображению первым аргументом командной строки, поэтому Windows может передавать PNG/JPG файл напрямую.
