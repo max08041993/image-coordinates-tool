@@ -44,6 +44,7 @@ Invoke-Native "jpackage" `
     --name ImageCoordinatesTool `
     --dest $appImageDir `
     --input $inputDir `
+    --icon (Join-Path $projectRoot "src\main\windows\app-icon.ico") `
     --main-jar image-coordinates-tool-1.0.0.jar `
     --main-class ru.qa.tools.ImageCoordinatesToolLauncher `
     --java-options "-Dfile.encoding=UTF-8"

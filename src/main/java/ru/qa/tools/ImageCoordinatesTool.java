@@ -30,6 +30,7 @@ import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
 import java.io.File;
+import java.io.InputStream;
 import java.util.List;
 
 public class ImageCoordinatesTool extends Application {
@@ -90,6 +91,7 @@ public class ImageCoordinatesTool extends Application {
         Scene scene = new Scene(root, 1200, 800);
 
         stage.setTitle("Координаты на изображении");
+        setWindowIcon(stage);
         stage.setScene(scene);
         stage.show();
 
@@ -270,6 +272,13 @@ public class ImageCoordinatesTool extends Application {
         selection.setStrokeWidth(1.5);
         selection.setVisible(false);
         selection.setMouseTransparent(true);
+    }
+
+    private void setWindowIcon(Stage stage) {
+        InputStream iconStream = ImageCoordinatesTool.class.getResourceAsStream("/icons/app-icon.png");
+        if (iconStream != null) {
+            stage.getIcons().add(new Image(iconStream));
+        }
     }
 
     private void openImage(Stage stage) {
