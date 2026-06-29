@@ -91,3 +91,38 @@ target/macos-installer
 ```
 
 Пакет использует иконку приложения и регистрирует ассоциации для PNG/JPG/JPEG.
+
+## Установщик Linux / Unix-like
+
+Linux-пакеты нужно собирать именно на Linux: `jpackage` не умеет кросс-собирать `.deb` или `.rpm` с Windows/macOS.
+
+На машине должен быть установлен полный JDK с `jpackage`, Maven и пакетные утилиты целевого формата:
+
+- для `.deb`: `dpkg-deb`;
+- для `.rpm`: `rpmbuild`.
+
+Собрать `.deb`:
+
+```bash
+./scripts/package-linux.sh
+```
+
+Собрать `.rpm`:
+
+```bash
+./scripts/package-linux.sh rpm
+```
+
+Собрать обычную папку приложения без системного установщика:
+
+```bash
+./scripts/package-linux.sh app-image
+```
+
+Готовый файл или app-image появится в папке:
+
+```text
+target/linux-installer
+```
+
+Пакет использует иконку приложения и регистрирует ассоциации для PNG/JPG/JPEG, если это поддерживается окружением рабочего стола.
